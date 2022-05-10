@@ -1,0 +1,22 @@
+{
+  "name": "SmoothCode Extension",
+  "description": "Chrome extension to mark spam reviews on Shopify app",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "extension_home.html",
+    "default_icon": "extension_icon.png"
+  },
+  "content_scripts": [{
+    "matches": ["https://apps.shopify.com/*/reviews*"],
+    "js": ["assets/js/content.js"],
+    "css": ["assets/css/toast.css"]
+  }],
+  "background": {
+    "service_worker": "assets/js/background.js"
+  },
+  "host_permissions": [
+    "https://hacks.smoothcode.io/reviews/home"
+  ],
+  "permissions": ["tabs", "cookies", "storage"]
+}
