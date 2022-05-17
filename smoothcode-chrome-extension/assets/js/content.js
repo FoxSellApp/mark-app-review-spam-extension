@@ -71,6 +71,10 @@ const shouldShowSpamButton = async () => {
 }
 
 const getReview = (review) => {
+    if (review.childNodes[5].textContent.trim().split('\n')[0] === 'Location'){
+        return getLocationReview(review)
+    }
+
     const ratingDiv = review.childNodes[3].textContent.trim().split('\n')
 
     return {
@@ -78,7 +82,20 @@ const getReview = (review) => {
         shop: review.childNodes[1].textContent.trim(),
         rating: ratingDiv[3].trim()[0],
         postedOn: ratingDiv[ratingDiv.length - 1].trim(),
-        content: review.childNodes[5].textContent.trim().split('\n')[0]
+        content: review.childNodes[5].textContent.trim().split('\n')[0].trim()
+    }
+}
+
+const getLocationReview = (review) => {
+    const ratingDiv = review.childNodes[1].textContent.trim().split('\n')
+
+    return {
+        id: review.dataset.reviewId,
+        shop: review.childNodes[3].textContent.trim(),
+        rating: ratingDiv[0].split(' ')[0],
+        postedOn: ratingDiv[ratingDiv.length - 1].trim(),
+        content: review.childNodes[9].textContent.trim().split('\n')[0].trim(),
+        location: review.childNodes[5].textContent.trim().split('\n')[3].trim()
     }
 }
 
