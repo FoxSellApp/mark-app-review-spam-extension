@@ -1,3 +1,4 @@
 # IDE files
 .idea/
 smoothcode-chrome-extension/.idea
+.DS_Store

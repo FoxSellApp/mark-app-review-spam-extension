@@ -18,5 +18,5 @@
   "host_permissions": [
     "https://hacks.smoothcode.io/reviews/home"
   ],
-  "permissions": ["tabs", "cookies", "storage"]
+  "permissions": ["cookies", "storage"]
 }
