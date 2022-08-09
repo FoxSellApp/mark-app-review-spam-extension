@@ -94,7 +94,7 @@ const getLocationReview = (review) => {
         shop: review.childNodes[3].textContent.trim(),
         rating: ratingDiv[0].split(' ')[0],
         postedOn: ratingDiv[ratingDiv.length - 1].trim(),
-        content: review.childNodes[9].textContent.trim().split('\n')[0].trim(),
+        content: review.childNodes[7].textContent.trim().split('\n')[0].trim(),
         location: review.childNodes[5].textContent.trim().split('\n')[3].trim()
     }
 }
